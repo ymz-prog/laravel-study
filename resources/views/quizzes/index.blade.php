@@ -14,7 +14,7 @@
         <tr>
           <th scope="col" style="width:10%">#</th>
           <th scope="col">問題</th>
-          <th scope="col" style="width:10%">操作</th>
+          <th scope="col" style="width:20%; text-align:center;" colspan='2'>操作</th>
         </tr>
       </thead>
       <tbody>
@@ -22,7 +22,8 @@
         <tr>
           <th scope="row">{{ $quiz->id }}</th>
           <td><a href="{{ route('quizzes.show', $quiz->id) }}">{{ Str::limit($quiz->question, 50, '...') }}</a></td>
-          <td><button type="button" class="delete-quiz btn btn-danger btn-sm" data-id="{{ $quiz->id }}">削除</button></td>
+          <td class="text-center"><a class="btn btn-info btn-sm" href="{{ route('quizzes.edit', $quiz->id) }}" role="button">編集</a></td>
+          <td class="text-center"><button type="button" class="delete-quiz btn btn-danger btn-sm" data-id="{{ $quiz->id }}">削除</button></td>
         </tr>
         @endforeach
       </tbody>
