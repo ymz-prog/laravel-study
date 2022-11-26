@@ -105,7 +105,6 @@ class QuizController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo('aaa');
         // 入力内容のチェック
         // ルールに一致しない入力の場合は、自動的に入力画面を表示させる
         $validatedData = $request->validate([
@@ -118,7 +117,7 @@ class QuizController extends Controller
             'explanation' => 'max:65535',
         ]);
 
-        Quiz::where('id', $request->id)
+        Quiz::where('id', $id)
         ->update([
             'question' => $validatedData['question'],
             'answer_a' => $validatedData['answer_a'],
